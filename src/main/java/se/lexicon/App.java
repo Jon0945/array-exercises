@@ -61,6 +61,7 @@ public class App
         int[] firstArray = {1,15,20};
         int[] secondArray = Arrays.copyOf(firstArray,3);
         System.out.println();
+        System.out.println();
         for(int number : secondArray) {
             System.out.print(number + " ");
         }
@@ -96,6 +97,68 @@ public class App
         System.out.println();
         System.out.println();
         System.out.println("Average is: "+Math.round(sum/numbers.length * 10) /10.0);
+        ex07();
+    }
+
+    public static void ex07() {
+        //7. Write a program which will set up an array to hold 10 numbers and print out only the uneven numbers.
+        // Expected output: Array: 1 2 4 7 9 12
+        // Odd Array: 1 7 9
+        int[] fullArray = {1,2,4,7,9,12};
+        System.out.println();
+        System.out.print("Array: ");
+        for (int i : fullArray) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+        System.out.print("Odd Array: ");
+        for (int j : fullArray) {
+            if (j % 2 != 0) {
+                System.out.print(j + " ");
+            }
+        }
+        ex08();
+    }
+
+    public static void ex08() {
+        //8. Write a program which will remove the duplicate elements of a given array
+        // [20, 20, 40, 20, 30, 40, 50, 60, 50].
+        // Expected output: Array: 20 20 40 20 30 40 50 60 50
+        //Array without duplicate values: 20 40 30 50 60
+        int[] originalArray = {20,20,40,20,30,40,50,60,50};
+        System.out.println();
+        System.out.println();
+        System.out.print("Array: ");
+        for(int i : originalArray) {
+            System.out.print(i + " ");
+        }
+        //Efficient but cheating method using Java Stream
+        System.out.println();
+        System.out.print("1. Array without duplicate values: ");
+        int[] nonDuplicateArray = Arrays.stream(originalArray).distinct().toArray();
+        for(int j : nonDuplicateArray) {
+            System.out.print(j + " ");
+        }
+
+        //Cumbersome but honest method
+        System.out.println();
+        System.out.print("2. Array without duplicate values: ");
+        Arrays.sort(originalArray);
+        int current = originalArray[0];
+        boolean found = false;
+        for (int k=0; k<originalArray.length; k++)  {
+            if(current == originalArray[k] && !found) {
+                found = true;
+            } else if (current != originalArray[k]) {
+                System.out.print(current + " ");
+                current = originalArray[k];
+                found = false;
+            }
+        }
+        System.out.print(current + " ");
+
+
+
     }
 
     //indexOF method for ex02
