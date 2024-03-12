@@ -156,8 +156,25 @@ public class App
             }
         }
         System.out.print(current + " ");
+        ex10();
+    }
 
-
+    public static void ex10() {
+        //Write a program which will represent multiplication table stored in multidimensional array.
+        int [][] multiplicationTable = new int [10][10];
+        System.out.println();
+        System.out.println();
+        for(int row=0; row<10; row++) {
+            for(int col=0; col<10; col++) {
+                multiplicationTable[row][col] = (row+1) * (col+1);
+            }
+        }
+        for(int row = 0; row<multiplicationTable.length; row++){
+            for(int col = 0; col<multiplicationTable[row].length; col++){
+                System.out.print(multiplicationTable[row][col] + " ");
+            }
+            System.out.println();
+        }
 
     }
 
@@ -166,6 +183,14 @@ public class App
         Arrays.sort(array);
         return Arrays.binarySearch(array, input);
 
+    }
+
+    //9. Write a method which will add elements in an array.
+    // Remember that arrays are fixed in size, so you need to come up with a solution to “expand” the array.
+    public static int[] addIntToArray(final int[] source, int input) {
+        int[] newArray = Arrays.copyOf(source,source.length+1);
+        newArray[newArray.length-1] = input;
+        return newArray;
     }
 }
 
