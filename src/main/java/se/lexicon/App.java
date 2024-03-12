@@ -2,6 +2,7 @@ package se.lexicon;
 
 import java.util.Scanner;
 import java.util.Arrays;
+import java.lang.Math;
 
 public class App
 {
@@ -47,25 +48,61 @@ public class App
         //Sort string array: [London, New York, Paris, Stockholm]
         String[] cities = {"Paris","London", "New York", "Stockholm"};
         Arrays.sort(cities);
+        System.out.println();
         for(String city : cities) {
             System.out.print(city + " ");
         }
         ex04();
     }
-
     public static void ex04() {
         //4. Write a program which will copy the elements of one array into another array.
         //Expected output: Elements from first array: 1 15 20
         //Elements from second array: 1 15 20
         int[] firstArray = {1,15,20};
         int[] secondArray = Arrays.copyOf(firstArray,3);
+        System.out.println();
+        for(int number : secondArray) {
+            System.out.print(number + " ");
+        }
+        ex05();
+    }
+
+    public static void ex05() {
+        //5. Create a two-dimensional string array [2][2]. Assign values to the
+        //2-dimentional array containing any Country and City. Expected output: France Paris
+        //Sweden Stockholm
+        String[][] capitals = new String[2][2];
+        capitals[0][0] = "\nFrance";
+        capitals[0][1] = "Paris";
+        capitals[1][0] = "\nSweden";
+        capitals[1][1] = "Stockholm";
+        System.out.println();
+        for (String[] capital : capitals) {
+            for (String s : capital) {
+                System.out.print(s + " ");
+            }
+        }
+        ex06();
+    }
+
+    public static void ex06() {
+        //6. Write a program which will set up an array to hold the next values in this order: 43, 5, 23, 17, 2, 14
+        // and print the average of these 6 numbers. Expected output: Average is: 17.3
+        int[] numbers = {43,5,23,17,2,14};
+        double sum = 0.0;
+        for(int number : numbers) {
+           sum = sum+number;
+        }
+        System.out.println();
+        System.out.println();
+        System.out.println("Average is: "+Math.round(sum/numbers.length * 10) /10.0);
     }
 
     //indexOF method for ex02
     public static int indexOf(int[] array, int input) {
         Arrays.sort(array);
-        int result = Arrays.binarySearch(array, input);
-        return result;
+        return Arrays.binarySearch(array, input);
+
     }
 }
 
